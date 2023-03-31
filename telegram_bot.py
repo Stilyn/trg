@@ -24,7 +24,6 @@ import config  # импортируем собственный модуль ко
 # import requests
 #
 # import uuid
-# from yookassa import Configuration, Payment, Webhook
 
 # заморочки с вебхуками ***************************************************************************
 WEBHOOK_HOST = config.whost  # IP-адрес сервера, на котором запущен бот
@@ -70,8 +69,8 @@ if __name__ == '__main__':  # идиома которая говорит скр�
     # Снимаем вебхук перед повторной установкой (избавляет от некоторых проблем)
     bot.remove_webhook()
     # Ставим заново вебхук
-    bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH,
-                    certificate=open(WEBHOOK_SSL_CERT, 'r'))
+    bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH, certificate=open(WEBHOOK_SSL_CERT, 'r'))
+    # bot.set_webhook(url=WEBHOOK_URL_BASE + WEBHOOK_URL_PATH)
     # Указываем настройки сервера CherryPy
     cherrypy.config.update({
         'server.socket_host': WEBHOOK_LISTEN,
